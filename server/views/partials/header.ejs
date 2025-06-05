@@ -1,0 +1,15 @@
+<header>
+
+    <div class="logo">CertifyMe</div>
+
+    <ul class="header-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <% if (!user) { %>
+            <li><a href="#">Login</a></li>
+            <% } else { %>
+                <li><a href="#">Logout</a></li>
+                <% } %>
+    </ul>
+
+</header>
