@@ -8,14 +8,26 @@
     <link rel="stylesheet" href="/css/root.css">
 </head>
 
-<body>
+<body class="min-h-screen">
 
     <%- include('../partials/header') %>
 
-        <main class="main-layout">
+        <% if (successMsg) { %>
+            <div class="flash flash-success">
+                <%= successMsg %>
+            </div>
+        <% } %>
+
+        <% if (errorMsg) { %>
+            <div class="flash flash-error">
+                <%= errorMsg %>
+            </div>
+        <%} %>
+
+        <main class="main-layout max-w-screen-xl mx-auto -x-4 py-8">
             <%- body %>
         </main>
-
+        
     <%- include('../partials/footer') %>
 
 </body>

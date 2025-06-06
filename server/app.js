@@ -5,6 +5,7 @@ const db = require("../server/config/db");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
+const flash = require("connect-flash");
 const MongoStore = require("connect-mongo");
 const passport = require("passport");
 
@@ -53,10 +54,22 @@ app.use(passport.initialize());
 // Connect passport to session
 app.use(passport.session());
 
-// Example route
-app.get("/", (req, res) => {
-  res.render("home/index", { title: "Welcome to CertifyMe", user: null });
-});
+// Flash
+app.use(flash());
+
+const flashMiddleware = require("./middleware/flash");
+app.use(flashMiddleware);
+
+// Make user available in all templates
+const setUser = require("./middleware/setUser");
+app.use(setUser);
+
+// Routes
+const indexRoutes = require("./routes/indexRoutes");
+const authRoutes = require("./routes/authRoutes");
+
+app.use("/", indexRoutes);
+app.use("/auth", authRoutes);
 
 // App start
 const port = process.env.PORT || 3000;
