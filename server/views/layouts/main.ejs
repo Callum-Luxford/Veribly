@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CertifyMe</title>
-    <link rel="stylesheet" href="/css/root.css">
-</head>
+    <link rel="stylesheet" href="/css/root.css" />
+  </head>
 
-<body class="min-h-screen">
+  <body class="min-h-screen">
+    <%- include('../partials/header') %> <% if (successMsg) { %>
 
-    <%- include('../partials/header') %>
+    <div class="flash flash-success"><%= successMsg %></div>
+    <% } %> <% if (errorMsg) { %>
+    <div class="flash flash-error"><%= errorMsg %></div>
+    <%} %>
 
-        <% if (successMsg) { %>
-            <div class="flash flash-success">
-                <%= successMsg %>
-            </div>
-        <% } %>
+    <main class="main-layout max-w-screen-xl mx-auto -x-4 py-8">
+      <%- body %>
+    </main>
 
-        <% if (errorMsg) { %>
-            <div class="flash flash-error">
-                <%= errorMsg %>
-            </div>
-        <%} %>
-
-        <main class="main-layout max-w-screen-xl mx-auto -x-4 py-8">
-            <%- body %>
-        </main>
-        
     <%- include('../partials/footer') %>
-
-</body>
-
+  </body>
 </html>
