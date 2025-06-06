@@ -4,6 +4,9 @@ const express = require("express");
 const db = require("../server/config/db");
 const path = require("path");
 const expressLayouts = require("express-ejs-layouts");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+const passport = require("passport");
 
 // Connect to db
 db();
@@ -25,6 +28,30 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware: Static folder
 app.use(express.static(path.join(__dirname, "../client")));
+
+// Express Session
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24,
+      secure: false,
+      httpOnly: true,
+    },
+  })
+);
+
+// Passport:
+require("./config/passport");
+// Init Passport
+app.use(passport.initialize());
+// Connect passport to session
+app.use(passport.session());
 
 // Example route
 app.get("/", (req, res) => {
