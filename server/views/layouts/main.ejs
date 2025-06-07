@@ -3,22 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CertifyMe</title>
+    <title>Veribly</title>
+    <link rel="icon" href="#" />
     <link rel="stylesheet" href="/css/root.css" />
   </head>
 
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-theme_clr_1">
     <%- include('../partials/header') %> <% if (successMsg) { %>
 
     <div class="flash flash-success"><%= successMsg %></div>
     <% } %> <% if (errorMsg) { %>
-    <div class="flash flash-error"><%= errorMsg %></div>
+    <main class="flash flash-error"><%= errorMsg %></div>
     <%} %>
 
-    <main class="main-layout max-w-screen-xl mx-auto -x-4 py-8">
-      <%- body %>
-    </main>
+    <div class="main-container w-full px-4">
+      <main class="max-w-screen-2xl mx-auto w-full py-8">
+        <%- body %>
+      </main>
+    </div>
 
     <%- include('../partials/footer') %>
+
+    <script type="module" src="/js/main.js"></script>
   </body>
 </html>
