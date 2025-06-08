@@ -111,16 +111,15 @@
     --font-clr-2: #1F2937;
     --font-clr-3: #424242;
     --font-clr-4: #a0a0a0;
-    --font-clr-5: #FFD000;
 
     /* ----------- theme colors ------------ */
     /* ----------- theme colors ------------ */
     --theme-clr-1: #F9FAFB;
-    --theme-clr-2: #F9FAFB;
-    --theme-clr-3: #FFFFFF;
-    --theme-clr-4: #424242;
-    --theme-clr-5: #f2f2f2;
-    --theme-clr-6: #fffbe9;
+
+    /* ----------- button colors ------------ */
+    /* ----------- button colors ------------ */
+    --button-clr-1: #2563eb;
+
 
     --bg-gradient-1: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2)
         /* ----------- Extra CSS / Project Specific ------------ */

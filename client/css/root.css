@@ -102,15 +102,12 @@
   --font-clr-2: #1F2937;
   --font-clr-3: #424242;
   --font-clr-4: #a0a0a0;
-  --font-clr-5: #FFD000;
   /* ----------- theme colors ------------ */
   /* ----------- theme colors ------------ */
   --theme-clr-1: #F9FAFB;
-  --theme-clr-2: #F9FAFB;
-  --theme-clr-3: #FFFFFF;
-  --theme-clr-4: #424242;
-  --theme-clr-5: #f2f2f2;
-  --theme-clr-6: #fffbe9;
+  /* ----------- button colors ------------ */
+  /* ----------- button colors ------------ */
+  --button-clr-1: #2563eb;
   --bg-gradient-1: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2)
         /* ----------- Extra CSS / Project Specific ------------ */
         /* ----------- Extra CSS / Project Specific ------------ */
@@ -891,6 +888,10 @@ select{
   position: fixed
 }
 
+.absolute{
+  position: absolute
+}
+
 .relative{
   position: relative
 }
@@ -901,6 +902,26 @@ select{
 
 .top-0{
   top: 0px
+}
+
+.-top-1{
+  top: -0.25rem
+}
+
+.-top-2{
+  top: -0.5rem
+}
+
+.right-1{
+  right: 0.25rem
+}
+
+.left-1{
+  left: 0.25rem
+}
+
+.left-0\.5{
+  left: 0.125rem
 }
 
 .z-50{
@@ -928,20 +949,28 @@ select{
   display: none
 }
 
-.h-6{
-  height: 1.5rem
+.h-5{
+  height: 1.25rem
 }
 
 .h-full{
   height: 100%
 }
 
-.h-4{
-  height: 1rem
+.h-10{
+  height: 2.5rem
 }
 
-.h-5{
-  height: 1.25rem
+.h-20{
+  height: 5rem
+}
+
+.h-40{
+  height: 10rem
+}
+
+.h-1{
+  height: 0.25rem
 }
 
 .min-h-\[calc\(80dvh-4rem\)\]{
@@ -958,6 +987,10 @@ select{
 
 .w-full{
   width: 100%
+}
+
+.w-auto{
+  width: auto
 }
 
 .max-w-3xl{
@@ -1020,14 +1053,6 @@ select{
   border-radius: 0.5rem
 }
 
-.border-b{
-  border-bottom-width: 1px
-}
-
-.border-white\/20{
-  border-color: rgb(255 255 255 / 0.2)
-}
-
 .bg-theme_clr_1{
   background-color: var(--theme-clr-1)
 }
@@ -1041,36 +1066,9 @@ select{
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
 }
 
-.bg-white\/30{
-  background-color: rgb(255 255 255 / 0.3)
-}
-
-.bg-gradient_1{
-  background-image: var(--bg-gradient-1)
-}
-
-.bg-\[url\(\'\/images\/your-image\.jpg\'\)\]{
-  background-image: url('/images/your-image.jpg')
-}
-
-.bg-\[url\(\'\/images\/bg-im\.jpg\'\)\]{
-  background-image: url('/images/bg-im.jpg')
-}
-
-.bg-\[url\(\'\/images\/bg-image\.jpg\'\)\]{
-  background-image: url('/images/bg-image.jpg')
-}
-
-.bg-cover{
-  background-size: cover
-}
-
-.bg-contain{
-  background-size: contain
-}
-
-.bg-center{
-  background-position: center
+.object-contain{
+  -o-object-fit: contain;
+     object-fit: contain
 }
 
 .p-8{
@@ -1102,21 +1100,22 @@ select{
   line-height: 1.75rem
 }
 
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem
+}
+
 .font-bold{
   font-weight: 700
+}
+
+.font-extrabold{
+  font-weight: 800
 }
 
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1))
-}
-
-.opacity-10{
-  opacity: 0.1
-}
-
-.opacity-50{
-  opacity: 0.5
 }
 
 .shadow-lg{
@@ -1129,24 +1128,6 @@ select{
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-}
-
-.backdrop-blur-0{
-  --tw-backdrop-blur: blur(0);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
-}
-
-.backdrop-blur-md{
-  --tw-backdrop-blur: blur(12px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
-}
-
-.backdrop-blur-lg{
-  --tw-backdrop-blur: blur(16px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
 }
 
 .transition-transform{
