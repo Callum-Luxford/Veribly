@@ -110,8 +110,9 @@
     --font-clr-1: #F9FAFB;
     --font-clr-2: #c9c9c9;
     --font-clr-3: #05a170;
-    --font-clr-4: #a0a0a0;
-    --font-clr-5: #000000;
+    --font-clr-4: #048f79;
+    --font-clr-5: #a0a0a0;
+    --font-clr-6: #000000;
 
     /* ----------- theme colors ------------ */
     /* ----------- theme colors ------------ */
@@ -119,6 +120,7 @@
     --theme-clr-2: #047857;
     --theme-clr-3: #059669;
     --theme-clr-4: #10B981;
+    --theme-clr-5: #046c5f;
 
     /* ----------- button colors ------------ */
     /* ----------- button colors ------------ */
@@ -134,6 +136,13 @@
     --icon-filter-clr-1: invert(37%) sepia(90%) saturate(579%) hue-rotate(116deg) brightness(97%) contrast(96%);
 
     --icon-filter-clr-2: invert(93%) sepia(100%) saturate(26%) hue-rotate(100deg) brightness(107%) contrast(107%);
+
+    --icon-filter-clr-3: invert(31%) sepia(50%) saturate(742%) hue-rotate(123deg) brightness(96%) contrast(97%);
+
+    --icon-filter-clr-4: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%);
+
+    --icon-filter-clr-4-shadow: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.2));
+
 
 
 }
@@ -194,12 +203,28 @@ body {
         filter: var(--icon-filter-clr-2);
     }
 
+    .icon-filter-3 {
+        filter: var(--icon-filter-clr-3);
+    }
+
+    .icon-filter-4 {
+        filter: var(--icon-filter-clr-4);
+    }
+
+    .icon-filter-4-shadow {
+        filter: var(--icon-filter-clr-4-shadow);
+    }
+
     .nav-shadow {
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     }
 
+    .nav-link {
+        @apply hover:underline;
+    }
+
     .section-title {
-        @apply text-3xl md:text-4xl font-bold text-center text-text_clr_3 mb-12;
+        @apply text-4xl md:text-5xl font-bold text-center text-text_clr_4 mb-12;
     }
 
     .card {
@@ -220,7 +245,7 @@ body {
     }
 
     .why-card img {
-        @apply size-20 icon-filter-1
+        @apply size-20 icon-filter-4-shadow;
     }
 
     /* === why card === */

@@ -101,14 +101,16 @@
   --font-clr-1: #F9FAFB;
   --font-clr-2: #c9c9c9;
   --font-clr-3: #05a170;
-  --font-clr-4: #a0a0a0;
-  --font-clr-5: #000000;
+  --font-clr-4: #048f79;
+  --font-clr-5: #a0a0a0;
+  --font-clr-6: #000000;
   /* ----------- theme colors ------------ */
   /* ----------- theme colors ------------ */
   --theme-clr-1: #F9FAFB;
   --theme-clr-2: #047857;
   --theme-clr-3: #059669;
   --theme-clr-4: #10B981;
+  --theme-clr-5: #046c5f;
   /* ----------- button colors ------------ */
   /* ----------- button colors ------------ */
   --button-clr-1: #05a170;
@@ -119,6 +121,9 @@
   --border-muted: #E5E7EB;
   --icon-filter-clr-1: invert(37%) sepia(90%) saturate(579%) hue-rotate(116deg) brightness(97%) contrast(96%);
   --icon-filter-clr-2: invert(93%) sepia(100%) saturate(26%) hue-rotate(100deg) brightness(107%) contrast(107%);
+  --icon-filter-clr-3: invert(31%) sepia(50%) saturate(742%) hue-rotate(123deg) brightness(96%) contrast(97%);
+  --icon-filter-clr-4: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%);
+  --icon-filter-clr-4-shadow: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.2));
 }
 
 *,
@@ -944,29 +949,33 @@ select{
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.icon-filter-1 {
-  filter: var(--icon-filter-clr-1);
-}
-
 .icon-filter-2 {
   filter: var(--icon-filter-clr-2);
+}
+
+.icon-filter-3 {
+  filter: var(--icon-filter-clr-3);
 }
 
 .nav-shadow {
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
+.nav-link:hover{
+  text-decoration-line: underline;
+}
+
 .section-title{
   margin-bottom: 3rem;
   text-align: center;
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--font-clr-3);
+  color: var(--font-clr-4);
 }
 
 @media (min-width: 768px){
   .section-title{
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-5xl);
   }
 }
 
@@ -1037,7 +1046,7 @@ select{
 }
 
 .why-card img {
-  filter: var(--icon-filter-clr-1);
+  filter: var(--icon-filter-clr-4-shadow);
   width: 5rem;
   height: 5rem;
 }
@@ -1230,8 +1239,8 @@ select{
   border-radius: 0.5rem;
 }
 
-.bg-\[var\(--theme-clr-2\)\]{
-  background-color: var(--theme-clr-2);
+.bg-\[var\(--theme-clr-5\)\]{
+  background-color: var(--theme-clr-5);
 }
 
 .bg-theme_clr_1{
@@ -1319,6 +1328,15 @@ select{
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.drop-shadow-monitor{
+  --tw-drop-shadow: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.4));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.filter{
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .transition{
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1371,8 +1389,8 @@ select{
     background-color: transparent;
   }
 
-  .md\:text-text_clr_5{
-    color: var(--font-clr-5);
+  .md\:text-text_clr_6{
+    color: var(--font-clr-6);
   }
 
   .md\:shadow-none{
