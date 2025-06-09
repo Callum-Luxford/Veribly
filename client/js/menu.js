@@ -9,10 +9,33 @@ function initMenu() {
   }
 
   function toggleMenu() {
-    navMenu.classList.toggle("translate-x-full");
-    navMenu.classList.toggle("translate-x-0");
-    openIcon.classList.toggle("hidden");
-    closeIcon.classList.toggle("hidden");
+    const isOpen = navMenu.classList.contains("translate-x-0");
+
+    if (isOpen) {
+      // MENU IS CLOSING
+
+      // rotate class to close icon before hiding
+      closeIcon.classList.add("rotate-90");
+
+      // Slide menu out
+      navMenu.classList.remove("translate-x-0");
+      navMenu.classList.add("translate-x-full");
+
+      // Wait for transition + rotation to complete
+      setTimeout(() => {
+        closeIcon.classList.remove("rotate-90");
+        closeIcon.classList.add("hidden");
+        openIcon.classList.remove("hidden");
+      }, 300); // matches Tailwind's duration-300
+    } else {
+      // MENU IS OPENING
+
+      navMenu.classList.remove("translate-x-full");
+      navMenu.classList.add("translate-x-0");
+
+      openIcon.classList.add("hidden");
+      closeIcon.classList.remove("hidden");
+    }
   }
 
   // Toggle on icon click

@@ -1,4 +1,4 @@
-<header class="w-full px-4 bg-theme_clr_2">
+<header class="section bg-theme_clr_1">
   <div
     class="max-w-screen-2xl mx-auto w-full flex justify-between items-center py-4"
   >
@@ -13,25 +13,25 @@
 
     <div
       id="menu-toggle"
-      class="md:hidden text-2xl cursor-pointer z-50 relative"
+      class="md:hidden text-2xl cursor-pointer z-100 relative"
     >
       <img
         src="/icons/menu.png"
         alt="Open Menu"
         id="menu-icon"
-        class="h-5 block"
+        class="h-5 block icon-filter-1"
       />
       <img
         src="/icons/close.png"
         alt="Close Menu"
         id="close-icon"
-        class="h-5 hidden"
+        class="h-5 hidden icon-filter-2 transition-transform duration-300"
       />
     </div>
 
     <ul
       id="nav-menu"
-      class="header-nav flex flex-col items-center justify-center gap-4 fixed top-0 right-0 h-full w-2/3 bg-white text-black shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-25 md:static md:flex-row md:translate-x-0 md:bg-transparent md:shadow-none md:h-auto md:w-auto"
+      class="header-nav flex flex-col items-center justify-center gap-4 fixed top-0 right-0 h-full w-2/3 font-semibold bg-[var(--theme-clr-2)] text-text_clr_1 nav-shadow transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:static md:flex-row md:translate-x-0 md:bg-transparent md:shadow-none md:h-auto md:w-auto md:text-text_clr_3 .btn text-2xl"
     >
       <li><a href="/">Home</a></li>
       <li><a href="/pricing">Pricing</a></li>

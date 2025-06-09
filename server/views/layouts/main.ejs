@@ -8,22 +8,20 @@
     <link rel="stylesheet" href="/css/root.css" />
   </head>
 
-  <body class="min-h-screen bg-theme_clr_1">
+  <body class="min-h-screen">
     <%- include('../partials/header') %> <% if (successMsg) { %>
 
     <div class="flash flash-success"><%= successMsg %></div>
     <% } %> <% if (errorMsg) { %>
-    <main class="flash flash-error"><%= errorMsg %></div>
+    <div class="flash flash-error"><%= errorMsg %></div>
     <%} %>
 
-    <div class="main-container w-full px-4">
-      <main class="max-w-screen-2xl mx-auto w-full py-8">
-        <%- body %>
-      </main>
-    </div>
+    <main class="mx-auto w-full"><%- body %></main>
 
     <%- include('../partials/footer') %>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="/js/particles-init.js"></script>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

@@ -107,23 +107,34 @@
 
     /* ----------- Font colors ------------ */
     /* ----------- Font colors ------------ */
-    --font-clr-1: #000000;
-    --font-clr-2: #1F2937;
-    --font-clr-3: #424242;
+    --font-clr-1: #F9FAFB;
+    --font-clr-2: #c9c9c9;
+    --font-clr-3: #05a170;
     --font-clr-4: #a0a0a0;
+    --font-clr-5: #000000;
 
     /* ----------- theme colors ------------ */
     /* ----------- theme colors ------------ */
     --theme-clr-1: #F9FAFB;
+    --theme-clr-2: #047857;
+    --theme-clr-3: #059669;
+    --theme-clr-4: #10B981;
 
     /* ----------- button colors ------------ */
     /* ----------- button colors ------------ */
-    --button-clr-1: #2563eb;
+    --button-clr-1: #05a170;
+    --button-hover-clr-1: #08b17c;
 
 
-    --bg-gradient-1: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2)
-        /* ----------- Extra CSS / Project Specific ------------ */
-        /* ----------- Extra CSS / Project Specific ------------ */
+    /* ----------- Extra CSS / Project Specific ------------ */
+    /* ----------- Extra CSS / Project Specific ------------ */
+    --bg-light: #FFFFFF;
+    --border-muted: #E5E7EB;
+
+    --icon-filter-clr-1: invert(37%) sepia(90%) saturate(579%) hue-rotate(116deg) brightness(97%) contrast(96%);
+
+    --icon-filter-clr-2: invert(93%) sepia(100%) saturate(26%) hue-rotate(100deg) brightness(107%) contrast(107%);
+
 
 }
 
@@ -145,4 +156,76 @@ body {
     height: 100%;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+}
+
+
+/* === TAILWIND UTILITY COMPONENTS === */
+.section {
+    @apply w-full px-4;
+}
+
+.section-inner {
+    @apply max-w-screen-2xl mx-auto w-full pt-16;
+}
+
+@layer components {
+    .btn {
+        cursor: pointer
+    }
+
+    .btn-primary {
+        @apply inline-block px-6 py-3 rounded-lg font-semibold text-[var(--font-clr-1)] bg-[var(--button-clr-1)] transition duration-300 ease-in-out;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--button-hover-clr-1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-primary-shadow {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-filter-1 {
+        filter: var(--icon-filter-clr-1);
+    }
+
+    .icon-filter-2 {
+        filter: var(--icon-filter-clr-2);
+    }
+
+    .nav-shadow {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-title {
+        @apply text-3xl md:text-4xl font-bold text-center text-text_clr_3 mb-12;
+    }
+
+    .card {
+        @apply bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition duration-300 ease-in-out text-center grid place-items-center gap-4
+    }
+
+    /* === why card === */
+    .why-card {
+        @apply bg-white dark:bg-[var(--theme-clr-1)] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 ease-in-out text-center;
+    }
+
+    .why-card h2 {
+        @apply text-2xl font-semibold text-[var(--font-clr-6)];
+    }
+
+    .why-card p {
+        @apply text-[var(--font-clr-5)] text-lg;
+    }
+
+    .why-card img {
+        @apply size-20 icon-filter-1
+    }
+
+    /* === why card === */
+
+    .card-grid {
+        @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+    }
 }
