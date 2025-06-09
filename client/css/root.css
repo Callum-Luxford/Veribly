@@ -149,12 +149,20 @@ body {
   padding-right: 1rem;
 }
 
+@media (min-width: 1024px){
+  .section{
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
 .section-inner{
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   max-width: 1536px;
   padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 *, ::before, ::after{
@@ -1113,6 +1121,10 @@ select{
   height: 1.25rem;
 }
 
+.h-6{
+  height: 1.5rem;
+}
+
 .h-full{
   height: 100%;
 }
@@ -1281,6 +1293,10 @@ select{
   font-weight: 700;
 }
 
+.font-medium{
+  font-weight: 500;
+}
+
 .font-semibold{
   font-weight: 600;
 }
@@ -1355,8 +1371,8 @@ select{
     background-color: transparent;
   }
 
-  .md\:text-text_clr_3{
-    color: var(--font-clr-3);
+  .md\:text-text_clr_5{
+    color: var(--font-clr-5);
   }
 
   .md\:shadow-none{

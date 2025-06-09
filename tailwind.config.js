@@ -11,6 +11,8 @@ module.exports = {
         text_clr_1: "var(--font-clr-1)", // light text
         text_clr_2: "var(--font-clr-2)", // subtle text
         text_clr_3: "var(--font-clr-3)", // subtle text
+        text_clr_4: "var(--font-clr-3)", // subtle text
+        text_clr_5: "var(--font-clr-5)", // subtle text
         text_dark: "var(--text-dark)", // black text on white bg
         bg_light: "var(--bg-light)", // white cards/navbar
         border_muted: "var(--border-muted)", // card borders
