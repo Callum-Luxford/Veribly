@@ -170,11 +170,15 @@ body {
 
 /* === TAILWIND UTILITY COMPONENTS === */
 .section {
-    @apply w-full px-4 lg:px-16;
+    @apply w-full px-4 lg:px-16 bg-theme_clr_1;
 }
 
 .section-inner {
     @apply max-w-screen-2xl mx-auto w-full pt-16 pb-16;
+}
+
+.auth-inner {
+    @apply max-w-screen-2xl mx-auto w-full;
 }
 
 @layer components {
@@ -220,7 +224,19 @@ body {
     }
 
     .nav-link {
-        @apply hover:underline;
+        @apply transition duration-300 ease-in-out;
+
+        @apply hover:underline md:hover:no-underline;
+        @apply md:hover:text-text_clr_4;
+    }
+
+    .header-btn {
+        @apply inline-block px-2 py-1 rounded-lg font-semibold text-[var(--font-clr-4)] border-2 border-[var(--button-clr-1)] transition duration-300 ease-in-out;
+    }
+
+    .header-btn:hover {
+        background-color: var(--button-hover-clr-1);
+        color: var(--font-clr-1);
     }
 
     .section-title {

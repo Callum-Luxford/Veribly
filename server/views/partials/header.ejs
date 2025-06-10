@@ -1,4 +1,4 @@
-<header class="section bg-theme_clr_1">
+<header class="section">
   <div
     class="max-w-screen-2xl mx-auto w-full flex justify-between items-center py-4"
   >
@@ -37,6 +37,13 @@
       <li><a class="nav-link" href="/pricing">Pricing</a></li>
       <% if (!user) { %>
       <li><a class="nav-link" href="/auth/login">Login</a></li>
+      <li>
+        <a
+          class="md:header-btn hover:underline md:hover:no-underline"
+          href="/auth/register"
+          >Sign up free</a
+        >
+      </li>
       <% } else { %>
       <li><a class="nav-link" href="#">Logout</a></li>
       <% } %>
