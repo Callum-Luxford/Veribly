@@ -1,4 +1,6 @@
-<div class="auth-inner min-h-screen grid grid-cols-1 lg:grid-cols-2">
+<div
+  class="auth-inner lg:min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-y-0"
+>
   <!-- Left: Login Form -->
   <div class="flex flex-col justify-center items-center order-2 lg:order-1">
     <div class="w-full px-4 lg:max-w-md lg:px-0 grid gap-8">
@@ -53,21 +55,26 @@
   </div>
 
   <!-- Right: Testimonial / Branding -->
-  <!-- Right: Testimonial / Branding -->
   <div
-    class="relative flex flex-col justify-center text-white order-2 lg:order-1"
+    class="relative flex flex-col justify-center text-white order-2 lg:order-1 lg:min-h-full flex-grow"
   >
+    <!-- min-h-[400px] md:min-h-[400px] -->
+
     <!-- Full-width background and particles -->
     <div
-      class="absolute inset-0 w-screen bg-[url('/images/veribly-background-4.png')] bg-no-repeat bg-cover bg-center z-0"
+      class="absolute inset-0 w-full lg:w-screen h-full bg-[url('/images/veribly-background-4.png')] bg-no-repeat bg-cover bg-center z-0"
     ></div>
-    <div id="particles-js" class="absolute inset-0 z-0 w-screen h-full"></div>
+    <div
+      id="particles-js"
+      class="absolute inset-0 z-0 w-full lg:w-screen h-full"
+    ></div>
 
-    <!-- Constrained foreground content -->
-    <div class="relative z-10 mx-auto px-4 space-y-6">
+    <!-- Foreground content -->
+    <div class="relative z-10 mx-auto px-4 mt-8 lg:mt-0 lg:px-12">
       <div class="text-4xl font-semibold leading-snug">
         “The Veribly tool is a fantastic option...”
       </div>
+
       <div class="flex items-center gap-4">
         <img
           src="/images/avatar.jpg"
@@ -81,6 +88,7 @@
           </p>
         </div>
       </div>
+
       <div class="mt-12 opacity-80">
         <p class="text-sm mb-2">
           Certifier is used by over 1,800 organizations:
@@ -90,6 +98,12 @@
           <img src="/logos/stanford.png" class="h-6" />
           <img src="/logos/wiley.png" class="h-6" />
         </div>
+      </div>
+
+      <!-- Logos / social proof -->
+      <div class="opacity-80">
+        <p class="text-sm mb-2">Trusted by over 1,800 organizations:</p>
+        <div class="flex flex-wrap gap-4 items-center">...</div>
       </div>
     </div>
   </div>

@@ -180,7 +180,7 @@ body {
 }
 
 .auth-inner {
-    @apply max-w-screen-xl mx-auto w-full;
+    @apply max-w-screen-xl mx-auto w-full pt-8 lg:pt-0;
 }
 
 @layer components {
@@ -273,11 +273,11 @@ body {
 
     /* === CREATE-CERT-SECTION === */
     .create-cert-p-tag {
-        @apply block text-2xl font-semibold text-text_clr_1 mb-2 text-center lg:text-start leading-none
+        @apply block text-3xl font-semibold text-text_clr_1 mb-2 text-center lg:text-start leading-none
     }
 
     .create-cert-p {
-        @apply text-text_clr_2 text-center lg:text-start m-0 p-0 leading-tight align-top
+        @apply text-2xl text-text_clr_2 text-center lg:text-start m-0 p-0 leading-tight align-top
     }
 
     /* === SUB TAGS SECTION === */
@@ -294,6 +294,8 @@ body {
     }
 }
 
+
+/* === DEFAULT FORM STYLE EDIT === */
 @layer base {
 
     input[type="text"],
