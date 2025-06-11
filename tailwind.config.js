@@ -7,6 +7,9 @@ module.exports = {
         theme_clr_1: "var(--theme-clr-1)", // dark green
         theme_clr_2: "var(--theme-clr-2)", // mid green
         theme_clr_3: "var(--theme-clr-3)", // light accent green
+        theme_clr_4: "var(--theme-clr-4)", // light accent green
+        theme_clr_5: "var(--theme-clr-5)", // light accent green
+        section_clr_1: "var(--section-clr-1)", // light accent green
         button_clr_1: "var(--button-clr-1)", // primary CTA green
         text_clr_1: "var(--font-clr-1)", // light text
         text_clr_2: "var(--font-clr-2)", // subtle text
