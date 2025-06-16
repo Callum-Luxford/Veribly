@@ -15,14 +15,54 @@ exports.renderRegister = (req, res) => {
 };
 
 // GET / LOGOUT
-exports.logout = (req, res) => {};
+// GET / LOGOUT
+exports.logout = (req, res, next) => {
+  console.log("✅ Logout route hit");
 
-// POST /*
-// POST / LOGIN
-exports.login = async (req, res) => {
-  const { email, password } = req.user;
-  try {
-  } catch (error) {}
+  console.log("Current user before logout:", req.user);
+  console.log("Current session ID:", req.sessionID);
+  console.log("Current session object:", req.session);
+
+  const sid = req.sessionID;
+
+  req.logout((err) => {
+    if (err) {
+      console.log("❌ Error during req.logout");
+      return next(err);
+    }
+
+    console.log("✅ Passport logout complete");
+
+    if (req.session) {
+      req.session.destroy((err) => {
+        if (err) {
+          console.error("❌ Session destruction error:", err);
+          return next(err);
+        }
+
+        console.log("✅ Session destroyed from memory");
+
+        // Force-delete from Mongo Store
+        req.sessionStore.destroy(sid, (err) => {
+          if (err) {
+            console.error(
+              "❌ Failed to destroy session from MongoDB store:",
+              err
+            );
+          } else {
+            console.log("✅ Session force-deleted from MongoDB store");
+          }
+
+          res.clearCookie("connect.sid");
+          res.redirect("/auth/login");
+        });
+      });
+    } else {
+      console.log("⚠️ No session found to destroy");
+      res.clearCookie("connect.sid");
+      res.redirect("/auth/login");
+    }
+  });
 };
 
 // POST / REGISTER
@@ -46,7 +86,7 @@ exports.register = async (req, res) => {
       }
 
       req.flash("Success", "You're logged in.");
-      res.redirect("home/index");
+      res.redirect("/");
     });
   } catch (error) {
     console.error("Registration error:", error);

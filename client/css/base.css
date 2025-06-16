@@ -292,6 +292,24 @@ body {
     .card {
         @apply bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition duration-300 ease-in-out text-center grid place-items-center gap-4
     }
+
+
+    /* === feature-cards === */
+    .feature-card {
+        @apply dark:bg-[var(--theme-clr-1)] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 ease-in-out text-center;
+    }
+
+    .feature-card h2 {
+        @apply text-2xl font-semibold text-[var(--font-clr-6)];
+    }
+
+    .feature-card p {
+        @apply text-[var(--font-clr-5)] text-lg;
+    }
+
+    .feature-card img {
+        @apply size-20 icon-filter-4-shadow;
+    }
 }
 
 
