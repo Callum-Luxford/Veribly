@@ -2,6 +2,7 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("../models/User");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 // Local Strategy
 passport.use(
@@ -30,6 +31,46 @@ passport.use(
       } catch (error) {
         console.error("Authentication error:", error.message);
         done(error);
+      }
+    }
+  )
+);
+
+// Google OAuth Strategy
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK_URL,
+    },
+    async (_accessToken, _refreshToken, profile, done) => {
+      try {
+        // Try finding by googleId first
+        let user = await User.findOne({ googleId: profile.id });
+
+        // If not found, try matching by email
+        if (!user) {
+          const email = profile.emails[0].value;
+          user = await User.findOne({ email });
+
+          if (user) {
+            // ✅ User exists, link Google ID
+            user.googleId = profile.id;
+            await user.save();
+          } else {
+            // ❌ No existing user at all — create new one
+            user = await User.create({
+              name: profile.displayName,
+              email,
+              googleId: profile.id,
+            });
+          }
+        }
+
+        return done(null, user);
+      } catch (err) {
+        return done(err, null);
       }
     }
   )
