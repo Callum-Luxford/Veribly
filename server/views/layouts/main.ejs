@@ -10,18 +10,21 @@
 
   <body class="min-h-screen">
     <%- include('../partials/header') %> <% if (successMsg) { %>
+      <div class="scroll-wrapper">
 
-    <div class="flash flash-success"><%= successMsg %></div>
-    <% } %> <% if (errorMsg) { %>
-    <div class="flash flash-error"><%= errorMsg %></div>
-    <%} %>
+      <div class="flash flash-success"><%= successMsg %></div>
+      <% } %> <% if (errorMsg) { %>
+      <div class="flash flash-error"><%= errorMsg %></div>
+      <%} %>
 
-    <main class="mx-auto w-full"><%- body %></main>
+      <main class="mx-auto w-full"><%- body %></main>
 
-    <%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="/js/particles-init.js"></script>
     <script type="module" src="/js/main.js"></script>
+    <script src="/js/scroll.js"></script>
   </body>
 </html>

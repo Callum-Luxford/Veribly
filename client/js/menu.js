@@ -1,8 +1,19 @@
 function initMenu() {
+  if (typeof window.isScrollLocked === "undefined") {
+    window.isScrollLocked = false;
+  }
   const menuToggle = document.getElementById("menu-toggle");
   const navMenu = document.getElementById("nav-menu");
   const openIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
+
+  const lockScroll = () => {
+    document.body.classList.add("lock-scroll");
+  };
+
+  const unlockScroll = () => {
+    document.body.classList.remove("lock-scroll");
+  };
 
   function isMenuOpen() {
     return navMenu.classList.contains("translate-x-0");
@@ -13,28 +24,28 @@ function initMenu() {
 
     if (isOpen) {
       // MENU IS CLOSING
-
-      // rotate class to close icon before hiding
       closeIcon.classList.add("rotate-90");
-
-      // Slide menu out
       navMenu.classList.remove("translate-x-0");
       navMenu.classList.add("translate-x-full");
 
-      // Wait for transition + rotation to complete
       setTimeout(() => {
         closeIcon.classList.remove("rotate-90");
         closeIcon.classList.add("hidden");
         openIcon.classList.remove("hidden");
-      }, 300); // matches Tailwind's duration-300
+      }, 300);
+
+      unlockScroll();
+      window.isScrollLocked = false;
     } else {
       // MENU IS OPENING
-
       navMenu.classList.remove("translate-x-full");
       navMenu.classList.add("translate-x-0");
 
       openIcon.classList.add("hidden");
       closeIcon.classList.remove("hidden");
+
+      lockScroll();
+      window.isScrollLocked = true;
     }
   }
 

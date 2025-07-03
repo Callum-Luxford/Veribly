@@ -121,7 +121,7 @@
     --theme-clr-3: #a259ff;
     --theme-clr-4: #8b5cf6;
     --theme-clr-5: #4cc9f0;
-    --theme-clr-6: #181818;
+    --theme-clr-6: #1f1f1f;
 
     /* ----------- button colors ------------ */
     /* ----------- button colors ------------ */
@@ -149,8 +149,6 @@
     --icon-filter-clr-1-shadow: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.2));
 
     --section-clr-1: #A259FF;
-
-
 }
 
 @layer base {
@@ -163,18 +161,33 @@
 
     html,
     body {
-        font-family: var(--font-family-base);
+        height: auto;
         overflow-x: hidden;
+        margin: 0;
+        padding: 0;
         background-color: var(--theme-clr-1);
+        font-family: 'Montserrat', sans-serif;
+        font-family: var(--font-family-base);
+        transition: padding-right 0.2s ease;
     }
 
     body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
         box-sizing: border-box;
-        font-family: 'Montserrat', sans-serif;
+    }
+
+    .scroll-wrapper {
+        will-change: transform;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+
+    /* Optional: for non-Tailwind fallback */
+    .no-scroll {
+        overflow: hidden;
+        height: 100%;
     }
 
     input[type="text"],
@@ -215,6 +228,12 @@
         background-clip: padding-box, border-box;
         box-shadow: none;
     }
+
+    /* 
+    footer {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    } */
 }
 
 
@@ -245,11 +264,11 @@
     }
 
     .section-inner {
-        @apply max-w-screen-xl mx-auto w-full pt-16 pb-16;
+        @apply max-w-screen-xl mx-auto w-full pt-32 pb-32;
     }
 
     .auth-inner {
-        @apply max-w-screen-xl mx-auto w-full pt-8 lg:pt-0;
+        @apply max-w-screen-xl mx-auto w-full pt-32 lg:pt-0;
     }
 
     .btn {
@@ -462,21 +481,21 @@
 
     /* === SUB TAGS SECTION === */
     .sub-p-tag {
-        @apply block text-8xl font-bold text-text_clr_4 text-center leading-tight mb-6
+        @apply block text-8xl font-bold text-text_clr_1 text-center leading-tight mb-6
     }
 
     .sub-p {
-        @apply text-[var(--font-clr-5)] text-center text-2xl
+        @apply text-[var(--font-clr-2)] text-center text-2xl
     }
 
 
     /* === feature-cards === */
     .feature-card {
-        @apply dark:bg-[var(--theme-clr-1)] rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300 ease-in-out text-center;
+        @apply rounded-xl p-6 transition duration-300 ease-in-out text-center h-full w-full;
     }
 
     .feature-card h2 {
-        @apply text-2xl font-semibold text-[var(--font-clr-6)];
+        @apply text-2xl font-semibold text-[var(--font-clr-1)];
     }
 
     .feature-card p {
@@ -486,4 +505,5 @@
     .feature-card img {
         @apply size-20 icon-filter-4-shadow;
     }
+
 }
