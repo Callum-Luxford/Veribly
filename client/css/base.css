@@ -134,8 +134,17 @@
     /* ----------- Extra CSS / Project Specific ------------ */
     --bg-light: #FFFFFF;
     --border-muted: #E5E7EB;
+    --gradient-clr-1: #ec4899;
+    --gradient-clr-2: #3b82f6;
+
+    --gradient-clr-3: #7700ff;
+    --gradient-clr-4: #111111;
+
+    --gradient-clr-5: #ec489a24;
+    --gradient-clr-6: #8922ff;
 
     --icon-filter-clr-1: brightness(0) saturate(100%) invert(15%) sepia(97%) saturate(7274%) hue-rotate(269deg) brightness(101%) contrast(108%);
+    --icon-filter-clr-2: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(84deg) brightness(97%) contrast(109%);
 
     --icon-filter-clr-1-shadow: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.2));
 
@@ -201,7 +210,7 @@
         border: 1px solid transparent;
         background-image:
             linear-gradient(#1a1a1a, #1a1a1a),
-            linear-gradient(to right, #ec4899, #3b82f6);
+            linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
         background-origin: border-box;
         background-clip: padding-box, border-box;
         box-shadow: none;
@@ -217,16 +226,15 @@
     .glow {
         border-radius: 1rem;
         background: radial-gradient(circle at center,
-                rgba(149, 0, 255, 0.3),
-                rgba(0, 0, 255, 0.1),
-                transparent);
+                rgba(149, 0, 255, 0.4),
+                rgba(0, 0, 255, 0.2),
+                rgba(0, 0, 0, 0));
         filter: blur(80px);
-        opacity: 0.8;
+        opacity: 1;
     }
 
-
     .gradient-text {
-        background: linear-gradient(to right, #ec4899, #3b82f6);
+        background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
         /* Pink to Blue */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -269,7 +277,7 @@
         position: absolute;
         inset: 0;
         border-radius: 0.5rem;
-        background: linear-gradient(to right, #ec4899, #3b82f6);
+        background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
         z-index: -2;
     }
 
@@ -304,15 +312,15 @@
     }
 
     .icon-filter-2 {
-        filter: var(--icon-filter-clr-1);
+        filter: var(--icon-filter-clr-2);
     }
 
     .icon-filter-3 {
-        filter: var(--icon-filter-clr-1);
+        filter: var(--icon-filter-clr-3);
     }
 
     .icon-filter-4 {
-        filter: var(--icon-filter-clr-1);
+        filter: var(--icon-filter-clr-4);
     }
 
     .icon-filter-4-shadow {
@@ -345,7 +353,7 @@
         width: 1.5rem;
         /* match your existing h-5 */
         height: 1.25rem;
-        background: linear-gradient(to right, #ec4899, #3b82f6);
+        background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
         /* Pink to Blue */
         -webkit-mask-image: url('/icons/menu.png');
         mask-image: url('/icons/menu.png');
@@ -364,7 +372,7 @@
         width: 1.5rem;
         /* h-5 equivalent */
         height: 1.25rem;
-        background: linear-gradient(to right, #ec4899, #3b82f6);
+        background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
         /* Pink to Blue */
         -webkit-mask-image: url('/icons/close.png');
         mask-image: url('/icons/close.png');
@@ -389,8 +397,35 @@
 
 
     .card {
-        @apply bg-zinc-900 rounded-lg p-6 transition duration-300 ease-in-out text-center grid place-items-center gap-4
+        @apply bg-zinc-900 rounded-lg p-6 transition duration-300 ease-in-out text-center grid place-items-center gap-4 bg-card_background_1;
     }
+
+    .card-gradient-border {
+        background: linear-gradient(to top right, var(--gradient-clr-3), var(--gradient-clr-4));
+        padding: 1px;
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+
+    .icon-wrapper {
+        background: linear-gradient(to right, var(--gradient-clr-5), var(--gradient-clr-6));
+        -webkit-mask-image: var(--icon-url);
+        mask-image: var(--icon-url);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    /* .card-gradient-border:hover {
+        filter: brightness(1.1);
+        transform: scale(1.01);
+        transition: 0.3s ease-in-out;
+    } */
 
     /* === why card === */
 
@@ -407,7 +442,7 @@
     }
 
     .why-card img {
-        @apply icon-filter-1 size-20 icon-filter-4-shadow;
+        @apply icon-filter-1 size-20;
     }
 
     .card-grid {

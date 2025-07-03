@@ -121,7 +121,14 @@
   /* ----------- Extra CSS / Project Specific ------------ */
   --bg-light: #FFFFFF;
   --border-muted: #E5E7EB;
+  --gradient-clr-1: #ec4899;
+  --gradient-clr-2: #3b82f6;
+  --gradient-clr-3: #7700ff;
+  --gradient-clr-4: #111111;
+  --gradient-clr-5: #ec489a24;
+  --gradient-clr-6: #8922ff;
   --icon-filter-clr-1: brightness(0) saturate(100%) invert(15%) sepia(97%) saturate(7274%) hue-rotate(269deg) brightness(101%) contrast(108%);
+  --icon-filter-clr-2: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(84deg) brightness(97%) contrast(109%);
   --icon-filter-clr-1-shadow: invert(41%) sepia(48%) saturate(998%) hue-rotate(126deg) brightness(93%) contrast(97%) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.2));
   --section-clr-1: #A259FF;
 }
@@ -977,7 +984,7 @@ input[type="email"]:focus,
   border: 1px solid transparent;
   background-image:
             linear-gradient(#1a1a1a, #1a1a1a),
-            linear-gradient(to right, #ec4899, #3b82f6);
+            linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
   background-origin: border-box;
   background-clip: padding-box, border-box;
   box-shadow: none;
@@ -986,15 +993,15 @@ input[type="email"]:focus,
 .glow {
   border-radius: 1rem;
   background: radial-gradient(circle at center,
-                rgba(149, 0, 255, 0.3),
-                rgba(0, 0, 255, 0.1),
-                transparent);
+                rgba(149, 0, 255, 0.4),
+                rgba(0, 0, 255, 0.2),
+                rgba(0, 0, 0, 0));
   filter: blur(80px);
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .gradient-text {
-  background: linear-gradient(to right, #ec4899, #3b82f6);
+  background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
   /* Pink to Blue */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1073,7 +1080,7 @@ input[type="email"]:focus,
   position: absolute;
   inset: 0;
   border-radius: 0.5rem;
-  background: linear-gradient(to right, #ec4899, #3b82f6);
+  background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
   z-index: -2;
 }
 
@@ -1110,15 +1117,15 @@ input[type="email"]:focus,
 }
 
 .icon-filter-2 {
-  filter: var(--icon-filter-clr-1);
+  filter: var(--icon-filter-clr-2);
 }
 
 .icon-filter-3 {
-  filter: var(--icon-filter-clr-1);
+  filter: var(--icon-filter-clr-3);
 }
 
 .icon-filter-4 {
-  filter: var(--icon-filter-clr-1);
+  filter: var(--icon-filter-clr-4);
 }
 
 .icon-filter-4-shadow {
@@ -1140,7 +1147,7 @@ input[type="email"]:focus,
 }
 
 .nav-link:hover:not(.no-gradient) {
-  background: linear-gradient(to right, #ec4899, #3b82f6);
+  background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
   /* Pink to Blue */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1150,7 +1157,7 @@ input[type="email"]:focus,
 
 @media (max-width: 767px) {
   .nav-link.no-gradient:hover {
-    background: linear-gradient(to right, #ec4899, #3b82f6);
+    background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
     /* Pink to Blue */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1163,7 +1170,7 @@ input[type="email"]:focus,
   width: 1.5rem;
   /* match your existing h-5 */
   height: 1.25rem;
-  background: linear-gradient(to right, #ec4899, #3b82f6);
+  background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
   /* Pink to Blue */
   -webkit-mask-image: url('/icons/menu.png');
   mask-image: url('/icons/menu.png');
@@ -1182,7 +1189,7 @@ input[type="email"]:focus,
   width: 1.5rem;
   /* h-5 equivalent */
   height: 1.25rem;
-  background: linear-gradient(to right, #ec4899, #3b82f6);
+  background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
   /* Pink to Blue */
   -webkit-mask-image: url('/icons/close.png');
   mask-image: url('/icons/close.png');
@@ -1231,6 +1238,7 @@ input[type="email"]:focus,
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1));
+  background-image: linear-gradient(135deg, rgba(120, 0, 190, 0.1) 5%, rgba(20, 20, 30, 0.98) 30%, rgba(10, 10, 10, 1) 100%);
   padding: 1.5rem;
   text-align: center;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
@@ -1239,6 +1247,33 @@ input[type="email"]:focus,
   transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.card-gradient-border {
+  background: linear-gradient(to top right, var(--gradient-clr-3), var(--gradient-clr-4));
+  padding: 1px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.icon-wrapper {
+  background: linear-gradient(to right, var(--gradient-clr-5), var(--gradient-clr-6));
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  width: 5rem;
+  height: 5rem;
+}
+
+/* .card-gradient-border:hover {
+        filter: brightness(1.1);
+        transform: scale(1.01);
+        transition: 0.3s ease-in-out;
+    } */
 
 /* === why card === */
 
@@ -1266,7 +1301,6 @@ input[type="email"]:focus,
 
 .why-card img {
   filter: var(--icon-filter-clr-1);
-  filter: var(--icon-filter-clr-4-shadow);
   width: 5rem;
   height: 5rem;
 }
@@ -1785,6 +1819,10 @@ input[type="email"]:focus,
   gap: 0.5rem;
 }
 
+.gap-20{
+  gap: 5rem;
+}
+
 .gap-4{
   gap: 1rem;
 }
@@ -1940,6 +1978,11 @@ input[type="email"]:focus,
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.via-purple-500{
+  --tw-gradient-to: rgb(168 85 247 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #a855f7 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .via-transparent{
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1947,6 +1990,10 @@ input[type="email"]:focus,
 
 .to-blue-500{
   --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
+}
+
+.to-cyan-500{
+  --tw-gradient-to: #06b6d4 var(--tw-gradient-to-position);
 }
 
 .bg-contain{
@@ -2285,7 +2332,7 @@ input[type="email"]:focus,
     position: absolute;
     inset: 0;
     border-radius: 0.5rem;
-    background: linear-gradient(to right, #ec4899, #3b82f6);
+    background: linear-gradient(to right, var(--gradient-clr-1), var(--gradient-clr-2));
     z-index: -2;
   }
 
@@ -2346,6 +2393,10 @@ input[type="email"]:focus,
 }
 
 @media (min-width: 640px){
+  .sm\:max-w-\[600px\]{
+    max-width: 600px;
+  }
+
   .sm\:text-10xl{
     font-size: var(--font-size-10xl);
   }
@@ -2452,6 +2503,10 @@ input[type="email"]:focus,
 
   .lg\:items-start{
     align-items: flex-start;
+  }
+
+  .lg\:gap-10{
+    gap: 2.5rem;
   }
 
   .lg\:gap-x-10{

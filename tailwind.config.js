@@ -67,6 +67,8 @@ module.exports = {
       },
       backgroundImage: {
         gradient_1: "var(--bg-gradient-1)",
+        card_background_1:
+          "linear-gradient(135deg, rgba(120, 0, 190, 0.1) 5%, rgba(20, 20, 30, 0.98) 30%, rgba(10, 10, 10, 1) 100%)",
       },
       fontFamily: {
         base: "var(--font-family-base)",
