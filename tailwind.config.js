@@ -1,6 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./server/views/**/*.ejs", "./client/js/**/*.js"],
+  content: [
+    "./server/views/**/*.ejs",
+    "./client/js/**/*.js",
+    "./client/css/**/*.css",
+  ],
+  safelist: [
+    "icon-filter-1",
+    "icon-filter-2",
+    "icon-filter-3",
+    "icon-filter-4",
+    "icon-filter-4-shadow",
+  ],
   theme: {
     extend: {
       colors: {

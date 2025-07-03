@@ -1,7 +1,7 @@
 particlesJS("particles-js", {
   particles: {
-    number: { value: 20, density: { enable: true, value_area: 600 } },
-    color: { value: "#059669" },
+    number: { value: 10, density: { enable: true, value_area: 800 } },
+    color: { value: "#a259ff" },
     shape: { type: "circle" },
     opacity: {
       value: 1,
@@ -39,6 +39,5 @@ particlesJS("particles-js", {
   interactivity: {
     detect_on: "canvas",
     events: { onhover: { enable: false, mode: "repulse" } },
-    modes: { repulse: { distance: 100 } },
   },
 });
