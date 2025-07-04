@@ -14,6 +14,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        float: "float 3s ease-in-out infinite",
+      },
       colors: {
         theme_clr_1: "var(--theme-clr-1)", // dark green
         theme_clr_2: "var(--theme-clr-2)", // mid green

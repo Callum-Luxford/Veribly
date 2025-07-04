@@ -7,13 +7,50 @@ function initMenu() {
   const openIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
 
-  const lockScroll = () => {
-    document.body.classList.add("lock-scroll");
-  };
+  let scrollPosition = 0;
 
-  const unlockScroll = () => {
+  function getScrollbarWidth() {
+    const width = window.innerWidth - document.documentElement.clientWidth;
+    return width > 0 ? width : 15;
+  }
+
+  function lockScroll() {
+    scrollPosition = window.scrollY;
+
+    const scrollbarWidth = getScrollbarWidth();
+    console.log("Scrollbar width:", scrollbarWidth); // Check in console
+
+    document.body.classList.add("lock-scroll");
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
+
+    document.documentElement.classList.add("no-scroll");
+
+    const overlay = document.getElementById("nav-overlay");
+    if (overlay) {
+      overlay.classList.remove("hidden");
+      overlay.classList.add("fixed", "inset-0");
+      overlay.style.top = `0`;
+    }
+  }
+
+  function unlockScroll() {
     document.body.classList.remove("lock-scroll");
-  };
+    document.body.style.top = "";
+    document.body.style.overflow = "";
+    document.body.style.paddingRight = "";
+
+    document.documentElement.classList.remove("no-scroll");
+
+    window.scrollTo(0, scrollPosition);
+
+    const overlay = document.getElementById("nav-overlay");
+    if (overlay) {
+      overlay.classList.add("hidden");
+      overlay.style.top = "0";
+    }
+  }
 
   function isMenuOpen() {
     return navMenu.classList.contains("translate-x-0");

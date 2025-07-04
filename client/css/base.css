@@ -250,6 +250,25 @@
                 rgba(0, 0, 0, 0));
         filter: blur(80px);
         opacity: 1;
+
+        animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+
+        0%,
+        100% {
+            opacity: 0.6;
+        }
+
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .lock-scroll {
+        position: fixed;
+        width: 100%;
     }
 
     .gradient-text {
