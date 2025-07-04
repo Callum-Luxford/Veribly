@@ -73,7 +73,7 @@ app.use(setUser);
 // Routes
 const indexRoutes = require("./routes/indexRoutes");
 const authRoutes = require("./routes/authRoutes");
-const certificateRoutes = require("./server/routes/certificateRoutes");
+const certificateRoutes = require("./routes/certificateRoutes");
 
 app.use("/", indexRoutes);
 app.use("/auth", authRoutes);
