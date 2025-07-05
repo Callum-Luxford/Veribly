@@ -548,4 +548,13 @@
         /* background: linear-gradient(to top right, var(--gradient-clr-3), var(--gradient-clr-4)); */
     }
 
+    .card-gradient-border-template-active {
+        background: linear-gradient(to right,
+                var(--gradient-clr-1),
+                var(--gradient-clr-2));
+        box-shadow:
+            -6px 0 15px rgba(236, 72, 153, 0.5),
+            6px 0 15px rgba(59, 130, 246, 0.5);
+    }
+
 }

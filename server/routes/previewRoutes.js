@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/preview-certificate", (req, res) => {
-  const { name, title, date, signature } = req.query;
+  const { name, title, date, signature, template } = req.query;
 
   res.render("classic-certificate", {
     layout: false,
@@ -10,6 +10,7 @@ router.get("/preview-certificate", (req, res) => {
     title,
     date,
     signature,
+    template: `${template}.png`,
   });
 });
 

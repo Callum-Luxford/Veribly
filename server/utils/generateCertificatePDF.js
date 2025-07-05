@@ -10,8 +10,16 @@ const generateCertificatePDF = async function ({
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
+  const query = new URLSearchParams({
+    name,
+    title,
+    date,
+    signature,
+    template,
+  }).toString();
+
   // Load the certificate preview page
-  await page.goto("http://localhost:3000/preview-certificate", {
+  await page.goto(`http://localhost:3000/preview-certificate?${query}`, {
     waitUntil: "networkidle0",
   });
 
