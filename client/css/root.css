@@ -1613,6 +1613,10 @@ input[type="email"]:focus,
   margin-bottom: 0.5rem;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .mb-6{
   margin-bottom: 1.5rem;
 }
@@ -1625,12 +1629,20 @@ input[type="email"]:focus,
   margin-top: 0px;
 }
 
+.mt-10{
+  margin-top: 2.5rem;
+}
+
 .mt-12{
   margin-top: 3rem;
 }
 
 .mt-4{
   margin-top: 1rem;
+}
+
+.mt-6{
+  margin-top: 1.5rem;
 }
 
 .mt-8{
@@ -1688,6 +1700,10 @@ input[type="email"]:focus,
 
 .h-80{
   height: 20rem;
+}
+
+.h-\[600px\]{
+  height: 600px;
 }
 
 .h-auto{
@@ -2004,6 +2020,16 @@ input[type="email"]:focus,
   border-bottom-width: 1px;
 }
 
+.border-gray-500{
+  --tw-border-opacity: 1;
+  border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-700{
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity, 1));
+}
+
 .border-transparent{
   border-color: transparent;
 }
@@ -2097,6 +2123,12 @@ input[type="email"]:focus,
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-blue-600{
+  --tw-gradient-from: #2563eb var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(37 99 235 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-pink-400{
   --tw-gradient-from: #f472b6 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(244 114 182 / 0) var(--tw-gradient-to-position);
@@ -2150,6 +2182,10 @@ input[type="email"]:focus,
 
 .to-blue-500{
   --tw-gradient-to: #3b82f6 var(--tw-gradient-to-position);
+}
+
+.to-indigo-600{
+  --tw-gradient-to: #4f46e5 var(--tw-gradient-to-position);
 }
 
 .bg-cover{
@@ -2230,6 +2266,11 @@ input[type="email"]:focus,
 .px-4{
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-5{
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .px-6{
@@ -2394,6 +2435,11 @@ input[type="email"]:focus,
 .text-blue-900{
   --tw-text-opacity: 1;
   color: rgb(30 58 138 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-300{
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
 }
 
 .text-gray-400{
@@ -2678,8 +2724,17 @@ input[type="email"]:focus,
   }
 }
 
+.hover\:bg-gray-700:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:underline:hover{
   text-decoration-line: underline;
+}
+
+.hover\:opacity-90:hover{
+  opacity: 0.9;
 }
 
 .focus\:outline-none:focus{

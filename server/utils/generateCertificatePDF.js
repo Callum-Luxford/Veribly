@@ -6,6 +6,7 @@ const generateCertificatePDF = async function ({
   date,
   signature,
   template,
+  outputPath,
 }) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -18,21 +19,16 @@ const generateCertificatePDF = async function ({
     template,
   }).toString();
 
-  // Load the certificate preview page
   await page.goto(`http://localhost:3000/preview-certificate?${query}`, {
     waitUntil: "networkidle0",
   });
 
-  // Wait for the certificate container
   await page.waitForSelector("#certificate");
 
-  // Get the bounding box of the #certificate element
   const certificate = await page.$("#certificate");
-  const clip = await certificate.boundingBox();
 
-  // Generate PDF only of the certificate area
   await page.pdf({
-    path: "certificate.pdf",
+    path: outputPath,
     printBackground: true,
     width: "1123px",
     height: "794px",
@@ -44,7 +40,7 @@ const generateCertificatePDF = async function ({
     },
   });
 
-  console.log("✅ PDF generated: certificate.pdf");
+  console.log("✅ PDF generated:", outputPath);
 
   await browser.close();
 };

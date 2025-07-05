@@ -1,5 +1,6 @@
 // Modules
 require("dotenv").config();
+require("./utils/cleanupScheduler");
 const express = require("express");
 const db = require("../server/config/db");
 const path = require("path");
@@ -35,6 +36,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware: Static folder
 app.use(express.static(path.join(__dirname, "../client")));
+app.use(
+  "/generated",
+  express.static(path.join(__dirname, "..", "client", "generated"))
+);
 
 // Express Session
 app.use(

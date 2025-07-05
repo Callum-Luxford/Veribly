@@ -224,7 +224,7 @@
       <!-- Template Previews -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div
-          class="card-gradient-border-template relative"
+          class="card-gradient-border-template relative card-gradient-border-template-active"
           data-template="certificate-1"
         >
           <div
@@ -298,73 +298,114 @@
       </div>
     </div>
 
-    <!-- Form -->
-    <div class="gradient-border-wrapper w-full mx-auto">
-      <form
-        action="/api/generate-certificate"
-        method="POST"
-        class="mx-auto bg-form_clr_1 p-6 rounded-lg text-text_clr_1 flex flex-col gap-8"
-      >
-        <!-- Name -->
-        <div>
-          <label for="name" class="block font-semibold mb-2">Name</label>
+    <div id="form-wrapper">
+      <!-- Form -->
+      <div class="gradient-border-wrapper w-full mx-auto">
+        <form
+          action="/api/generate-certificate"
+          method="POST"
+          class="mx-auto bg-form_clr_1 p-6 rounded-lg text-text_clr_1 flex flex-col gap-8"
+          id="home-cert-form"
+        >
+          <!-- Name -->
+          <div>
+            <label for="name" class="block font-semibold mb-2">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              placeholder="e.g. John Smith"
+              class="w-full px-4 py-3 border-transparent"
+            />
+          </div>
+
+          <!-- Title -->
+          <div>
+            <label for="title" class="block font-semibold mb-2">Title</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              required
+              placeholder="e.g. Certificate of Completion"
+              class="w-full px-4 py-3 border-transparent"
+            />
+          </div>
+
+          <!-- Date -->
+          <div>
+            <label for="date" class="block font-semibold mb-2">Date</label>
+            <input
+              type="date"
+              name="date"
+              id="date"
+              class="w-full px-4 py-3 border-transparent"
+            />
+          </div>
+
+          <!-- Signature -->
+          <div>
+            <label for="signature" class="block font-semibold mb-2"
+              >Signature</label
+            >
+            <input
+              type="text"
+              name="signature"
+              id="signature"
+              placeholder="e.g. Jane Doe"
+              class="w-full px-4 py-3 border-transparent"
+            />
+          </div>
+
           <input
-            type="text"
-            name="name"
-            id="name"
-            required
-            placeholder="e.g. John Smith"
-            class="w-full px-4 py-3 border-transparent"
+            type="hidden"
+            name="template"
+            id="selectedTemplate"
+            value="certificate-1"
           />
-        </div>
 
-        <!-- Title -->
-        <div>
-          <label for="title" class="block font-semibold mb-2">Title</label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            required
-            placeholder="e.g. Certificate of Completion"
-            class="w-full px-4 py-3 border-transparent"
-          />
-        </div>
+          <!-- Submit -->
+          <div class="text-center pt-4">
+            <button
+              id="home-form-submit"
+              type="submit"
+              class="btn-primary-shadow btn-primary"
+            >
+              Create PDF
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-        <!-- Date -->
-        <div>
-          <label for="date" class="block font-semibold mb-2">Date</label>
-          <input
-            type="date"
-            name="date"
-            id="date"
-            class="w-full px-4 py-3 border-transparent"
-          />
-        </div>
+    <!-- 🔥 Preview Section (Moved Outside Form Section) -->
+    <div id="preview-area" class="hidden text-center mt-10">
+      <h2 class="text-2xl font-bold text-white mb-2">PDF Generated</h2>
+      <p class="text-gray-300 mb-4">Your file is ready to download</p>
 
-        <!-- Signature -->
-        <div>
-          <label for="signature" class="block font-semibold mb-2"
-            >Signature</label
-          >
-          <input
-            type="text"
-            name="signature"
-            id="signature"
-            placeholder="e.g. Jane Doe"
-            class="w-full px-4 py-3 border-transparent"
-          />
-        </div>
+      <iframe
+        id="pdf-preview"
+        class="w-full max-w-4xl h-[600px] border-2 border-gray-700 rounded-lg mx-auto"
+        src=""
+      ></iframe>
 
-        <input type="hidden" name="template" id="selectedTemplate" value="" />
-
-        <!-- Submit -->
-        <div class="text-center pt-4">
-          <button type="submit" class="btn-primary-shadow btn-primary">
-            Create PDF
-          </button>
-        </div>
-      </form>
+      <div class="mt-6 flex justify-center gap-4">
+        <a
+          id="download-link"
+          class="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow hover:opacity-90 transition"
+          download
+          target="_blank"
+        >
+          Download PDF
+        </a>
+        <button
+          id="generate-new"
+          class="px-5 py-2 border border-gray-500 text-gray-300 rounded-lg hover:bg-gray-700 transition"
+        >
+          Generate Another PDF
+        </button>
+      </div>
     </div>
   </section>
 </section>
