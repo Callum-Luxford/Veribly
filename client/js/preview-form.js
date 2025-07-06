@@ -1,6 +1,5 @@
 function handlePreviewForm() {
-
-   const downloadBtn = document.getElementById("download-link");
+  const downloadBtn = document.getElementById("download-link");
   const generateBtn = document.getElementById("generate-new");
 
   function toggleButtons(active, inactive) {
@@ -14,13 +13,16 @@ function handlePreviewForm() {
     toggleButtons(downloadBtn, generateBtn);
   }
 
-  // On hover in/out
-  generateBtn.addEventListener("mouseenter", () => toggleButtons(generateBtn, downloadBtn));
-  generateBtn.addEventListener("mouseleave", reset);
+  // DRY hover toggle setup
+  function setupHoverToggle(button, otherButton) {
+    button.addEventListener("mouseenter", () =>
+      toggleButtons(button, otherButton)
+    );
+    button.addEventListener("mouseleave", reset);
+  }
 
-  downloadBtn.addEventListener("mouseenter", () => toggleButtons(downloadBtn, generateBtn));
-  downloadBtn.addEventListener("mouseleave", reset);
-
+  setupHoverToggle(generateBtn, downloadBtn);
+  setupHoverToggle(downloadBtn, generateBtn);
 
   const templateBoxes = document.querySelectorAll(
     ".card-gradient-border-template"
@@ -73,6 +75,13 @@ function handleCertificateSubmit() {
     previewArea.classList.remove("hidden");
     pdfIframe.src = pdfUrl;
     downloadButton.href = pdfUrl;
+
+    function updateScrollHeightSafely() {
+      if (typeof setBodyHeight === "function") {
+        setTimeout(() => setBodyHeight(), 100);
+      }
+    }
+    updateScrollHeightSafely();
   }
 
   const homeCertForm = document.getElementById("home-cert-form");
@@ -107,7 +116,23 @@ function handleCertificateSubmit() {
     previewArea.classList.add("hidden");
     pdfIframe.src = "";
     certForm.reset();
-    document.getElementById("selectedTemplate").value = "";
+
+    // Re-select the default template box visually
+    const defaultBox = document.querySelector(
+      '.card-gradient-border-template[data-template="certificate-1"]'
+    );
+    if (defaultBox) {
+      // Remove any active state from all boxes
+      document
+        .querySelectorAll(".card-gradient-border-template")
+        .forEach((el) =>
+          el.classList.remove("card-gradient-border-template-active")
+        );
+
+      // Add active class and set value
+      defaultBox.classList.add("card-gradient-border-template-active");
+      document.getElementById("selectedTemplate").value = "certificate-1";
+    }
   });
 }
 

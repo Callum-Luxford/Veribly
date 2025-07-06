@@ -5,7 +5,6 @@ import { handlePreviewForm, handleCertificateSubmit } from "./preview-form.js";
 document.addEventListener("DOMContentLoaded", () => {
   initMenu();
   initHeaderGlass();
+  handlePreviewForm();
+  handleCertificateSubmit();
 });
-
-handlePreviewForm();
-handleCertificateSubmit();

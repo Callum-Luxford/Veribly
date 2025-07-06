@@ -1816,6 +1816,10 @@ input[type="email"]:focus,
   display: none;
 }
 
+.aspect-\[11\/8\.5\]{
+  aspect-ratio: 11/8.5;
+}
+
 .size-20{
   width: 5rem;
   height: 5rem;
@@ -1839,10 +1843,6 @@ input[type="email"]:focus,
 
 .h-80{
   height: 20rem;
-}
-
-.h-\[600px\]{
-  height: 600px;
 }
 
 .h-auto{
@@ -1953,6 +1953,10 @@ input[type="email"]:focus,
   border-collapse: collapse;
 }
 
+.origin-top-left{
+  transform-origin: top left;
+}
+
 .translate-x-0{
   --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1965,6 +1969,12 @@ input[type="email"]:focus,
 
 .rotate-90{
   --tw-rotate: 90deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.scale-100{
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
