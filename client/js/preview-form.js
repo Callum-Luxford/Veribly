@@ -1,4 +1,27 @@
 function handlePreviewForm() {
+
+   const downloadBtn = document.getElementById("download-link");
+  const generateBtn = document.getElementById("generate-new");
+
+  function toggleButtons(active, inactive) {
+    active.classList.add("btn-primary");
+    active.classList.remove("btn-secondary");
+    inactive.classList.add("btn-secondary");
+    inactive.classList.remove("btn-primary");
+  }
+
+  function reset() {
+    toggleButtons(downloadBtn, generateBtn);
+  }
+
+  // On hover in/out
+  generateBtn.addEventListener("mouseenter", () => toggleButtons(generateBtn, downloadBtn));
+  generateBtn.addEventListener("mouseleave", reset);
+
+  downloadBtn.addEventListener("mouseenter", () => toggleButtons(downloadBtn, generateBtn));
+  downloadBtn.addEventListener("mouseleave", reset);
+
+
   const templateBoxes = document.querySelectorAll(
     ".card-gradient-border-template"
   );
@@ -11,7 +34,7 @@ function handlePreviewForm() {
   if (defaultBox) {
     defaultBox.classList.add("card-gradient-border-template-active");
     hiddenInput.value = "certificate-1"; // also set the hidden input
-    console.log("✅ Default template set:", hiddenInput.value);
+    console.log("Default template set:", hiddenInput.value);
   }
 
   templateBoxes.forEach((box) => {
@@ -34,7 +57,7 @@ function handlePreviewForm() {
       }
 
       hiddenInput.value = template || "";
-      console.log("✅ Selected template:", hiddenInput.value);
+      console.log("Selected template:", hiddenInput.value);
     });
   });
 }
