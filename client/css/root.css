@@ -1581,7 +1581,19 @@ input[type="email"]:focus,
             6px 0 15px rgba(59, 130, 246, 0.5);
 }
 
-.template-img {
+.template-img{
+  position: relative;
+  z-index: 10;
+  height: auto;
+  width: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.template-img-container{
+  aspect-ratio: 1.41/1;
+  width: 100%;
 }
 
 /* Container that holds the iframe */
@@ -1831,6 +1843,10 @@ input[type="email"]:focus,
   display: none;
 }
 
+.aspect-\[1\.41\/1\]{
+  aspect-ratio: 1.41/1;
+}
+
 .aspect-\[11\/8\.5\]{
   aspect-ratio: 11/8.5;
 }
@@ -1922,10 +1938,6 @@ input[type="email"]:focus,
 
 .w-80{
   width: 20rem;
-}
-
-.w-\[95\%\]{
-  width: 95%;
 }
 
 .w-auto{
