@@ -17,6 +17,8 @@
           Generate professional certificates in just a few clicks.
         </h2>
         <button
+          type="button"
+          id="get-started-btn"
           class="btn-primary-shadow btn-primary w-60 lg:w-80 mx-auto lg:mx-0"
         >
           Get Started
@@ -207,7 +209,7 @@
   </section>
 </section>
 
-<section class="create-form section bg-theme_clr_1">
+<section class="create-form section bg-theme_clr_1" id="create-form">
   <section class="section-inner">
     <div class="grid grid-cols-1 gap-10 mb-16">
       <!-- Title + Subtitle -->
@@ -296,6 +298,20 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Local Spinner for PDF generation -->
+    <div
+      id="pdf-loading-spinner"
+      class="w-full flex flex-col items-center py-10 gap-4 hidden"
+    >
+      <!-- Spinner Circle -->
+      <div
+        class="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin"
+      ></div>
+
+      <!-- Text -->
+      <span class="text-white text-xl">Generating PDF...</span>
     </div>
 
     <div id="form-wrapper" class="">

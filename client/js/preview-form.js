@@ -65,12 +65,14 @@ function handlePreviewForm() {
 }
 
 function handleCertificateSubmit() {
-  function showCertificatePreview(pdfUrl) {
-    const formWrapper = document.getElementById("form-wrapper");
-    const previewArea = document.getElementById("preview-area");
-    const pdfIframe = document.getElementById("pdf-preview");
-    const downloadButton = document.getElementById("download-link");
+  const spinner = document.getElementById("pdf-loading-spinner");
+  const homeCertForm = document.getElementById("home-cert-form");
+  const formWrapper = document.getElementById("form-wrapper");
+  const previewArea = document.getElementById("preview-area");
+  const pdfIframe = document.getElementById("pdf-preview");
+  const downloadButton = document.getElementById("download-link");
 
+  function showCertificatePreview(pdfUrl) {
     formWrapper.classList.add("hidden");
     previewArea.classList.remove("hidden");
     pdfIframe.src = pdfUrl;
@@ -84,11 +86,13 @@ function handleCertificateSubmit() {
     updateScrollHeightSafely();
   }
 
-  const homeCertForm = document.getElementById("home-cert-form");
-
   // SUBMIT HANDLER
   homeCertForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    formWrapper.classList.add("hidden");
+    spinner.classList.remove("hidden");
+
     const formData = new FormData(homeCertForm);
     const url = `/api/generate-certificate`;
 
@@ -102,7 +106,12 @@ function handleCertificateSubmit() {
       const pdfUrl = data.url;
 
       showCertificatePreview(pdfUrl);
-    } catch (error) {}
+    } catch (error) {
+      formWrapper.classList.remove("hidden");
+      console.error("PDF generation failed", error);
+    } finally {
+      spinner.classList.add("hidden");
+    }
   });
 
   // GENERATE NEW HANDLER (OUTSIDE of submit!)
