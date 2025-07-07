@@ -22,7 +22,7 @@ const generateCertificatePDF = async function ({
             "--font-render-hinting=none",
           ],
         }
-      : {}
+      : {} // Let Puppeteer handle local Chromium path
   );
   const page = await browser.newPage();
 
