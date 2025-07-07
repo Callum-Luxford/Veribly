@@ -19,7 +19,7 @@ const generateCertificatePDF = async function ({
     template,
   }).toString();
 
-  await page.goto(`http://localhost:3000/preview-certificate?${query}`, {
+  await page.goto(`http://localhost:4000/preview-certificate?${query}`, {
     waitUntil: "networkidle0",
   });
 
