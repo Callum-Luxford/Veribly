@@ -72,20 +72,6 @@ function handleCertificateSubmit() {
   const pdfIframe = document.getElementById("pdf-preview");
   const downloadButton = document.getElementById("download-link");
 
-  // function showCertificatePreview(pdfUrl) {
-  //   formWrapper.classList.add("hidden");
-  //   previewArea.classList.remove("hidden");
-  //   pdfIframe.src = pdfUrl;
-  //   downloadButton.href = pdfUrl;
-
-  //   function updateScrollHeightSafely() {
-  //     if (typeof setBodyHeight === "function") {
-  //       setTimeout(() => setBodyHeight(), 100);
-  //     }
-  //   }
-  //   updateScrollHeightSafely();
-  // }
-
   function showCertificatePreview(pdfUrl) {
     formWrapper.classList.add("hidden");
     previewArea.classList.remove("hidden");
