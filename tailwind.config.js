@@ -85,6 +85,10 @@ module.exports = {
       },
       fontFamily: {
         base: "var(--font-family-base)",
+        playfair: ['"Playfair Display"', "serif"],
+        vibes: ['"Great Vibes"', "cursive"],
+        roboto: ['"Roboto"', "sans-serif"],
+        merriweather: ['"Merriweather"', "serif"],
       },
       zIndex: {
         "-5": "-5",
