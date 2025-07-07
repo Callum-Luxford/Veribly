@@ -1,4 +1,6 @@
+require("dotenv").config();
 const puppeteer = require("puppeteer");
+const BASE_URL = process.env.BASE_URL || "http://localhost:4000";
 
 const generateCertificatePDF = async function ({
   name,
@@ -19,7 +21,7 @@ const generateCertificatePDF = async function ({
     template,
   }).toString();
 
-  await page.goto(`http://localhost:3000/preview-certificate?${query}`, {
+  await page.goto(`${BASE_URL}/preview-certificate?${query}`, {
     waitUntil: "networkidle0",
   });
 
