@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="/css/root.css" />
   </head>
 
-  <body class="min-h-screen">
+  <body class="min-h-screen overflow-y-auto">
     <%- include('../partials/header') %> <% if (successMsg) { %>
-      <div class="scroll-wrapper">
-
+    <div class="scroll-wrapper min-h-screen overflow-y-auto">
       <div class="flash flash-success"><%= successMsg %></div>
       <% } %> <% if (errorMsg) { %>
       <div class="flash flash-error"><%= errorMsg %></div>
