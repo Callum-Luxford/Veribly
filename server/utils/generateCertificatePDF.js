@@ -10,7 +10,20 @@ const generateCertificatePDF = async function ({
   template,
   outputPath,
 }) {
-  const browser = await puppeteer.launch();
+  const isProduction = process.env.NODE_ENV === "production";
+
+  const browser = await puppeteer.launch(
+    isProduction
+      ? {
+          executablePath: "/usr/bin/chromium-browser",
+          args: [
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+            "--font-render-hinting=none",
+          ],
+        }
+      : {}
+  );
   const page = await browser.newPage();
 
   const query = new URLSearchParams({
