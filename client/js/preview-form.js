@@ -72,10 +72,40 @@ function handleCertificateSubmit() {
   const pdfIframe = document.getElementById("pdf-preview");
   const downloadButton = document.getElementById("download-link");
 
+  // function showCertificatePreview(pdfUrl) {
+  //   formWrapper.classList.add("hidden");
+  //   previewArea.classList.remove("hidden");
+  //   pdfIframe.src = pdfUrl;
+  //   downloadButton.href = pdfUrl;
+
+  //   function updateScrollHeightSafely() {
+  //     if (typeof setBodyHeight === "function") {
+  //       setTimeout(() => setBodyHeight(), 100);
+  //     }
+  //   }
+  //   updateScrollHeightSafely();
+  // }
+
   function showCertificatePreview(pdfUrl) {
     formWrapper.classList.add("hidden");
     previewArea.classList.remove("hidden");
-    pdfIframe.src = pdfUrl;
+
+    const pdfIframe = document.getElementById("pdf-preview");
+    const pdfImage = document.getElementById("pdf-preview-img");
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isTouch) {
+      // 👇 Show image, hide iframe
+      pdfImage.src = pdfUrl;
+      pdfImage.classList.remove("hidden");
+      pdfIframe.classList.add("hidden");
+    } else {
+      // 👇 Show iframe, hide image
+      pdfIframe.src = pdfUrl;
+      pdfIframe.classList.remove("hidden");
+      pdfImage.classList.add("hidden");
+    }
+
     downloadButton.href = pdfUrl;
 
     function updateScrollHeightSafely() {
@@ -85,6 +115,7 @@ function handleCertificateSubmit() {
     }
     updateScrollHeightSafely();
   }
+  
 
   // SUBMIT HANDLER
   homeCertForm.addEventListener("submit", async (e) => {
