@@ -29,6 +29,13 @@ if (!isTouchDevice) {
   }
 
   window.addEventListener("load", () => {
+    // ✅ Enable scrolling simulation on desktop only
+    scrollWrapper.style.position = "fixed";
+    scrollWrapper.style.top = "0";
+    scrollWrapper.style.left = "0";
+    scrollWrapper.style.width = "100%";
+    scrollWrapper.style.zIndex = "0";
+
     setBodyHeight();
     smoothScroll();
   });
