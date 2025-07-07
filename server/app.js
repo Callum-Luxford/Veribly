@@ -16,6 +16,12 @@ db();
 // App create
 const app = express();
 
+// Serve static generated PDFs FIRST
+app.use(
+  "/generated",
+  express.static(path.join(__dirname, "..", "client", "generated"))
+);
+
 const previewRoutes = require("./routes/previewRoutes");
 app.use("/", previewRoutes);
 
@@ -36,10 +42,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware: Static folder
 app.use(express.static(path.join(__dirname, "../client")));
-app.use(
-  "/generated",
-  express.static(path.join(__dirname, "..", "client", "generated"))
-);
 
 // Express Session
 app.use(
@@ -85,7 +87,7 @@ app.use("/auth", authRoutes);
 app.use("/api", certificateRoutes);
 
 // App start
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
