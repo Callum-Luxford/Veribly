@@ -15,7 +15,7 @@ const generateCertificatePDF = async function ({
   const browser = await puppeteer.launch(
     isProduction
       ? {
-          executablePath: "/usr/bin/chromium-browser",
+          headless: true,
           args: [
             "--no-sandbox",
             "--disable-setuid-sandbox",
