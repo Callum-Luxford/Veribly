@@ -115,7 +115,6 @@ function handleCertificateSubmit() {
     }
     updateScrollHeightSafely();
   }
-  
 
   // SUBMIT HANDLER
   homeCertForm.addEventListener("submit", async (e) => {
