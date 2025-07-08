@@ -163,8 +163,9 @@
 
     html,
     body {
-        height: auto;
         overflow-x: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
         margin: 0;
         padding: 0;
         background-color: var(--theme-clr-1);

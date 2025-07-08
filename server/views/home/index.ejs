@@ -411,7 +411,16 @@
         <div
           class="pdf-preview-container rounded-lg overflow-hidden bg-[#0a0a0a]/80 backdrop-blur-md w-full aspect-[11/8.5]"
         >
+          <!-- <iframe id="pdf-preview" class="w-full h-full" src=""></iframe> -->
+          <!-- Desktop iframe -->
           <iframe id="pdf-preview" class="w-full h-full" src=""></iframe>
+
+          <!-- Mobile/touch fallback image -->
+          <img
+            id="pdf-preview-img"
+            class="w-full h-full hidden object-contain"
+            alt="PDF Preview"
+          />
         </div>
       </div>
 

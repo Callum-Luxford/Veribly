@@ -24,6 +24,7 @@ const generateCertificatePDF = async function ({
         }
       : {} // Let Puppeteer handle local Chromium path
   );
+
   const page = await browser.newPage();
 
   const query = new URLSearchParams({

@@ -11,22 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function getStartedBtn() {
-  document.getElementById("get-started-btn").addEventListener("click", (e) => {
-    e.preventDefault(); // prevent default anchor behavior
+  const btn = document.getElementById("get-started-btn");
+  const formSection = document.getElementById("create-form");
 
-    const targetSection = document.getElementById("create-form");
+  if (!btn || !formSection) return;
 
-    if (targetSection && !isTouchDevice) {
-      const targetOffset =
-        targetSection.getBoundingClientRect().top + window.scrollY;
+  btn.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
 
+    // Modern scroll behavior for most browsers
+    formSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    // iOS fallback (especially Safari)
+    setTimeout(() => {
       window.scrollTo({
-        top: targetOffset,
-        behavior: "instant", // no smooth here — it's handled manually
+        top: formSection.offsetTop,
+        behavior: "smooth",
       });
-    } else {
-      // Fallback for mobile or if smoothScroll not active
-      targetSection?.scrollIntoView({ behavior: "smooth" });
-    }
+    }, 0);
   });
 }
+
+// Call the function
+getStartedBtn();

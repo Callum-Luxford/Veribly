@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="/css/root.css" />
   </head>
 
+<<<<<<< HEAD
   <body class="min-h-screen overflow-y-auto">
     <%- include('../partials/header') %> <% if (successMsg) { %>
     <div class="scroll-wrapper min-h-screen overflow-y-auto">
+=======
+  <body class="min-h-screen overflow-y-auto overflow-x-hidden">
+    <%- include('../partials/header') %> <% if (successMsg) { %>
+    <div class="scroll-wrapper min-h-screen overflow-x-hidden overflow-y-auto">
+>>>>>>> demo
       <div class="flash flash-success"><%= successMsg %></div>
       <% } %> <% if (errorMsg) { %>
       <div class="flash flash-error"><%= errorMsg %></div>
@@ -19,6 +25,11 @@
       <main class="mx-auto w-full"><%- body %></main>
 
       <%- include('../partials/footer') %>
+
+      <div
+        id="nav-overlay"
+        class="hidden fixed inset-0 z-40 bg-gradient-to-b from-black/60 to-black/90 backdrop-blur-md transition-opacity duration-300 md:hidden"
+      ></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

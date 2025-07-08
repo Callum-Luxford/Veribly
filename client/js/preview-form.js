@@ -75,7 +75,23 @@ function handleCertificateSubmit() {
   function showCertificatePreview(pdfUrl) {
     formWrapper.classList.add("hidden");
     previewArea.classList.remove("hidden");
-    pdfIframe.src = pdfUrl;
+
+    const pdfIframe = document.getElementById("pdf-preview");
+    const pdfImage = document.getElementById("pdf-preview-img");
+    const isTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
+    if (isTouch) {
+      // 👇 Show image, hide iframe
+      pdfImage.src = pdfUrl;
+      pdfImage.classList.remove("hidden");
+      pdfIframe.classList.add("hidden");
+    } else {
+      // 👇 Show iframe, hide image
+      pdfIframe.src = pdfUrl;
+      pdfIframe.classList.remove("hidden");
+      pdfImage.classList.add("hidden");
+    }
+
     downloadButton.href = pdfUrl;
 
     function updateScrollHeightSafely() {
