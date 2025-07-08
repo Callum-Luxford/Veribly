@@ -6,12 +6,37 @@ function initMenu() {
   const navMenu = document.getElementById("nav-menu");
   const openIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
+  const scrollWrapper = document.querySelector(".scroll-wrapper");
 
   let scrollPosition = 0;
 
   function getScrollbarWidth() {
     const width = window.innerWidth - document.documentElement.clientWidth;
     return width > 0 ? width : 15;
+  }
+
+  function isTouchDevice() {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  }
+
+  function enableScrollWrapperFix() {
+    if (scrollWrapper) {
+      scrollWrapper.style.position = "fixed";
+      scrollWrapper.style.top = "0";
+      scrollWrapper.style.left = "0";
+      scrollWrapper.style.width = "100%";
+      scrollWrapper.style.zIndex = "0";
+    }
+  }
+
+  function disableScrollWrapperFix() {
+    if (scrollWrapper) {
+      scrollWrapper.style.position = "";
+      scrollWrapper.style.top = "";
+      scrollWrapper.style.left = "";
+      scrollWrapper.style.width = "";
+      scrollWrapper.style.zIndex = "";
+    }
   }
 
   function lockScroll() {
@@ -33,6 +58,10 @@ function initMenu() {
       overlay.classList.add("fixed", "inset-0");
       overlay.style.top = `0`;
     }
+
+    if (isTouchDevice()) {
+      enableScrollWrapperFix();
+    }
   }
 
   function unlockScroll() {
@@ -49,6 +78,10 @@ function initMenu() {
     if (overlay) {
       overlay.classList.add("hidden");
       overlay.style.top = "0";
+    }
+
+    if (isTouchDevice()) {
+      disableScrollWrapperFix();
     }
   }
 
