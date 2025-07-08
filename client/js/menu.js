@@ -43,23 +43,22 @@ function initMenu() {
 
     document.documentElement.classList.remove("no-scroll");
 
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    // 👇 Scroll restore logic stays immediate
-    if (isMobile) {
-      // Delay scroll to avoid animation jank and overlay glitches
-      setTimeout(() => {
-        window.scrollTo(0, scrollPosition);
-      }, 0);
-    } else {
-      window.scrollTo(0, scrollPosition);
-    }
+    window.scrollTo(0, scrollPosition);
 
     const overlay = document.getElementById("nav-overlay");
     if (overlay) {
       overlay.classList.add("hidden");
       overlay.style.top = "0";
     }
+
+    // Force reflow to restore pointer events on mobile
+    document.activeElement?.blur();
+
+    requestAnimationFrame(() => {
+      document.body.style.transform = "scale(1)";
+      document.body.offsetHeight; // force reflow
+      document.body.style.transform = "";
+    });
   }
 
   function isMenuOpen() {
