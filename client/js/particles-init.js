@@ -1,6 +1,6 @@
 particlesJS("particles-js", {
   particles: {
-    number: { value: 10, density: { enable: true, value_area: 1000 } },
+    number: { value: 20 },
     color: { value: "#a259ff" },
     shape: { type: "circle" },
     opacity: {
