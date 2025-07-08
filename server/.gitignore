@@ -15,3 +15,6 @@ node_modules/
 
 # Uploads
 /server/uploads/
+
+# ignore generated pdf
+client/generated/*.pdf
