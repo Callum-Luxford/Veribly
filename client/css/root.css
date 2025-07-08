@@ -2303,8 +2303,6 @@ input[type="email"]:focus,
   overflow-y: auto;
 }
 
-<<<<<<< HEAD
-=======
 .overflow-x-hidden{
   overflow-x: hidden;
 }
@@ -2313,7 +2311,6 @@ input[type="email"]:focus,
   scroll-behavior: smooth;
 }
 
->>>>>>> demo
 .text-ellipsis{
   text-overflow: ellipsis;
 }
@@ -3191,14 +3188,6 @@ input[type="email"]:focus,
 }
 
 @media (min-width: 640px){
-  .sm\:block{
-    display: block;
-  }
-
-  .sm\:hidden{
-    display: none;
-  }
-
   .sm\:max-w-\[600px\]{
     max-width: 600px;
   }
