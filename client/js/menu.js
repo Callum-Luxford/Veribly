@@ -43,7 +43,7 @@ function initMenu() {
 
     document.documentElement.classList.remove("no-scroll");
 
-    window.scrollTo(0, scrollPosition);
+    // window.scrollTo(0, scrollPosition);
 
     const overlay = document.getElementById("nav-overlay");
     if (overlay) {
@@ -51,14 +51,14 @@ function initMenu() {
       overlay.style.top = "0";
     }
 
-    // Force reflow to restore pointer events on mobile
-    document.activeElement?.blur();
+    // 💡 Fix smooth scroll animation issue on mobile
+    const html = document.documentElement;
+    const originalScrollBehavior = html.style.scrollBehavior;
 
-    requestAnimationFrame(() => {
-      document.body.style.transform = "scale(1)";
-      document.body.offsetHeight; // force reflow
-      document.body.style.transform = "";
-    });
+    // Temporarily disable smooth scroll on mobile
+    html.style.scrollBehavior = "auto";
+    window.scrollTo(0, scrollPosition);
+    html.style.scrollBehavior = originalScrollBehavior;
   }
 
   function isMenuOpen() {
