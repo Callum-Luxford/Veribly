@@ -43,7 +43,17 @@ function initMenu() {
 
     document.documentElement.classList.remove("no-scroll");
 
-    window.scrollTo(0, scrollPosition);
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+    // 👇 Scroll restore logic stays immediate
+    if (isMobile) {
+      // Delay scroll to avoid animation jank and overlay glitches
+      setTimeout(() => {
+        window.scrollTo(0, scrollPosition);
+      }, 0);
+    } else {
+      window.scrollTo(0, scrollPosition);
+    }
 
     const overlay = document.getElementById("nav-overlay");
     if (overlay) {
